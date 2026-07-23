@@ -16,5 +16,12 @@ pipeline{
         sh 'go test ./...'
       }
     }
+    stage('Build our image') {
+      steps {
+        script {
+          docker.build('adamufura/go-webapp-sample')
+        }
+      }
+    }
   }
 }
